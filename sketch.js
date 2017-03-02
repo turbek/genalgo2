@@ -1,4 +1,6 @@
 var x = 0;
+var y = 0;
+
 
 function setup() {
     createCanvas(600,400);
@@ -8,6 +10,7 @@ function setup() {
 function draw() {
     background(200);
     fill(100);
-    rect(0+x, height/2, 30, 5);
-    x++
+    rect(x, y, 30, 5);
+    x+=random(5);
+    y+=random(5);
 }
