@@ -11,7 +11,6 @@ function draw(){
     fill(100);
     w.display();
     w.walk();
-
 }
 
 function Walker(){
@@ -21,13 +20,13 @@ function Walker(){
     this.walk = function() {
         var randomNum = Math.floor(random(4));
         if(randomNum === 0){
-            this.x+=1;
+            this.x++;
         } else if (randomNum === 1){
-            this.x-=1;
+            this.x--;
         } else if (randomNum === 2){
-            this.y+=1;
+            this.y++;
         } else {
-            this.y-=1;
+            this.y--;
         }
     };
 
