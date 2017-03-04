@@ -46,6 +46,7 @@ function Population(POPMAX, GENEMAX){
             console.log("i: "+i);
         }
     }
+    
 
     // this.matingPool = function(){
     //     this.matingpool = [];
