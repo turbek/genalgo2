@@ -1,4 +1,4 @@
-var POPMAX = 10;
+var POPMAX = 100;
 var POPCOUNT = 1;
 var GENEMAX = 100;
 var TIME = 0;
@@ -19,6 +19,7 @@ function draw(){
         population.matingPool();
         population.generateNewPopulation();
         POPCOUNT++;
+        TIME = 0;
     }
     TIME++;
 }

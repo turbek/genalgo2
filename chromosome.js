@@ -12,18 +12,16 @@ function Chromosome(GENEMAX){
     }
 
     this.move = function(i){
-        // for(var i = 0; i < GENEMAX; i++){
-            var num = this.genes[i];
-            if(num === 0){
-                this.x++;
-            } else if (num === 1 && this.x > 0){
-                this.x--;
-            } else if (num === 2){
-                this.y++;
-            } else if (num == 3 && this.y > 0){
-                this.y--;
-            }
-        // }
+        var num = this.genes[i];
+        if(num === 0){
+            this.x++;
+        } else if (num === 1 && this.x > 0){
+            this.x--;
+        } else if (num === 2){
+            this.y++;
+        } else if (num == 3 && this.y > 0){
+            this.y--;
+        }
     }
 
     this.display = function(){
