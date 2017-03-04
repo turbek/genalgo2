@@ -1,20 +1,26 @@
-var POPMAX = 100;
-var timer = 0;
+var POPMAX = 10;
+var POPCOUNT = 1;
+var GENEMAX = 100;
+var TIME = 0;
 var population;
 
 function setup(){
     createCanvas(600, 400);
-    population = new Population(POPMAX);
+    population = new Population(POPMAX, GENEMAX);
     population.generatePopulation();
+    population.generateGenes();
 }
 
 function draw(){
     background(200);
-    population.displayPopulation();
-    population.movePopulation();
+    population.run(TIME);
     population.checkFitness();
-    population.matingPool();
-    population.generateNewPopulation();
+    if(TIME >= 100*POPCOUNT){
+        population.matingPool();
+        population.generateNewPopulation();
+        POPCOUNT++;
+    }
+    TIME++;
 }
 
 // first the population and the genes should be calculated
