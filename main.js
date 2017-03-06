@@ -1,7 +1,7 @@
 var POPMAX = 100;
 var POPCOUNT = 1;
 var GENEMAX = 10000;
-var MUTATION = 0.01;
+var MUTATION = 0.05;
 var TIME = 0;
 var population;
 
