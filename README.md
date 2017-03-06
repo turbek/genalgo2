@@ -1,7 +1,11 @@
-# genalgo2
-2nd try of genetic algorithm w. balag3!
+# genetic algorithm gfx
+2nd try of genetic algorithm!
 
-This time we will try our best to make some flying objects that will try to
-fly towards a block on the canvas. If they reach the goal, the algorithm exits.
+This time there is a population of dots at the start, moving in random (total random, not gaussian or w. perlin noise. not yet!).
+The generations are trying their best to reach from left to the right side of the canvas. If they reach their goal,
+the algorithm exits(not yet).
 
-We will use p5.js for this project.
+To run it, open the index.html file in your browser!
+
+tech:
+p5.js
