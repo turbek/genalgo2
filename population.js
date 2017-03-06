@@ -1,4 +1,4 @@
-function Population(POPMAX, GENEMAX){
+function Population(POPMAX, GENEMAX, MUTATION){
     this.maxFitness = 0;
     this.population = [];
 
@@ -47,9 +47,11 @@ function Population(POPMAX, GENEMAX){
             var parent1 = this.lookForMate();
             var parent2 = this.lookForMate();
             var child = parent1.crossover(parent2);
+            child.mutate(MUTATION);
             tempPop[i] = child;
         }
         this.population = tempPop;
+        console.log(this.population[0].genes.length)
         console.log("NEW POPULATION")
     }
 }

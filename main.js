@@ -1,12 +1,13 @@
 var POPMAX = 100;
 var POPCOUNT = 1;
 var GENEMAX = 10000;
+var MUTATION = 0.05;
 var TIME = 0;
 var population;
 
 function setup(){
     createCanvas(600, 400);
-    population = new Population(POPMAX, GENEMAX);
+    population = new Population(POPMAX, GENEMAX, MUTATION);
     population.generatePopulation();
     population.generateGenes();
 }

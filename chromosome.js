@@ -14,13 +14,13 @@ function Chromosome(GENEMAX){
     this.move = function(i){
         var num = this.genes[i];
         if(num === 0){
-            this.x++;
+            this.x+=2;
         } else if (num === 1 && this.x > 0){
-            this.x--;
+            this.x-=2;
         } else if (num === 2){
-            this.y++;
+            this.y+=2;
         } else if (num == 3 && this.y > 0){
-            this.y--;
+            this.y-=2;
         }
     }
 
@@ -46,8 +46,14 @@ function Chromosome(GENEMAX){
         }
         return child;
     }
-    this.mutate = function(){
 
+    this.mutate = function(mutation){
+        for(var i = 0; i < GENEMAX; i++){
+            var r = random(1);
+            if(random(1)<=mutation){
+                this.genes[i] = Math.floor(random(4));
+            }
+        }
     }
 
 };
