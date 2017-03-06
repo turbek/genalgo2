@@ -1,6 +1,6 @@
 var POPMAX = 100;
 var POPCOUNT = 1;
-var GENEMAX = 100;
+var GENEMAX = 10000;
 var TIME = 0;
 var population;
 
@@ -16,7 +16,6 @@ function draw(){
     population.run(TIME);
     population.checkFitness();
     if(TIME >= 100*POPCOUNT){
-        population.matingPool();
         population.generateNewPopulation();
         POPCOUNT++;
         TIME = 0;

@@ -1,7 +1,6 @@
 function Population(POPMAX, GENEMAX){
     this.maxFitness = 0;
     this.population = [];
-    this.matingpool = [];
 
     this.generatePopulation = function(){
         for(var i = 0; i < POPMAX; i++){
@@ -15,7 +14,6 @@ function Population(POPMAX, GENEMAX){
             var fitness = this.population[i].fitness;
             if(fitness > this.maxFitness){
                 this.maxFitness = fitness;
-                console.log("NEW MAX FITNESS:"+fitness+" chromosome:"+this.population[i].genes)
             }
         }
     }
@@ -33,48 +31,25 @@ function Population(POPMAX, GENEMAX){
         }
     }
 
-    this.matingPool = function(){
-        this.matingpool = [];
-        for(var i = 0; i < POPMAX; i++){
-            console.log("matingpool length: "+this.matingpool.length);
-            if(this.population[i].fitness < random(this.maxFitness)){
-                console.log("siker");
-                this.matingpool.push(this.population[i]);
-            } else if(i > 0){
-                i--;
+    this.lookForMate = function(){
+        while(true){
+            var chromosome = this.population[Math.floor(random(POPMAX))];
+            if(random(this.maxFitness) < chromosome.fitness){
+                return chromosome;
             }
-            console.log("i: "+i);
         }
     }
-    
 
-    // this.matingPool = function(){
-    //     this.matingpool = [];
-    //     for(var i = 0; i < POPMAX; i++){
-    //         if(this.checkForMating(this.population[i]) == null){
-    //
-    //         }
-    //     }
-    // }
-
-    // this.matingPool = function(){
-    //     this.matingpool = [];
-    //     for(var i = 0; i < POPMAX; i++){
-    //         var poolcount = this.population[i].fitness / this.maxFitness * 100;
-    //         for(var i = 0; i <= Math.floor(poolcount); i++){
-    //             this.matingpool.push(this.population[i]);
-    //         }
-    //     }
-    // }
 
     this.generateNewPopulation = function(){
+        var tempPop = [];
         for(var i = 0; i < POPMAX; i++){
-            var parent1 = this.matingpool[Math.floor(random(this.matingpool.length))];
-            var parent2 = this.matingpool[Math.floor(random(this.matingpool.length))];
+            var parent1 = this.lookForMate();
+            var parent2 = this.lookForMate();
             var child = parent1.crossover(parent2);
-            console.log(child);
-            this.population[i] = child;
+            tempPop[i] = child;
         }
-        console.log(this.population);
+        this.population = tempPop;
+        console.log("NEW POPULATION")
     }
 }

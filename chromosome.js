@@ -35,16 +35,16 @@ function Chromosome(GENEMAX){
     }
 
     this.crossover = function(partner){
-        var child = new Chromosome();
-        var pivot = Math.floor(random(this.genes.length));
-        for(var i = 0; i < this.genes.length; i++){
+        var child = new Chromosome(GENEMAX);
+        var pivot = Math.floor(random(GENEMAX));
+        for(var i = 0; i < GENEMAX; i++){
             if(i > pivot) {
                 child.genes[i] = this.genes[i];
             } else {
                 child.genes[i] = partner.genes[i];
             }
-
         }
+        return child;
     }
     this.mutate = function(){
 
