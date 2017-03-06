@@ -22,6 +22,3 @@ function draw(){
     }
     TIME++;
 }
-
-// first the population and the genes should be calculated
-// only after that should we display the generated population!!!!
