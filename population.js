@@ -48,7 +48,11 @@ function Population(POPMAX, GENEMAX, MUTATION){
         for(var i = 0; i < POPMAX; i++){
             var parent1 = this.lookForMate();
             var parent2 = this.lookForMate(parent1);
-            var child = parent1.crossover(parent2);
+            if(random(1) <= 0.5){
+                var child = parent1.crossover(parent2);
+            } else {
+                var child = parent2.crossover(parent1);
+            }
             child.mutate(MUTATION);
             tempPop[i] = child;
         }
