@@ -31,11 +31,13 @@ function Population(POPMAX, GENEMAX, MUTATION){
         }
     }
 
-    this.lookForMate = function(){
+    this.lookForMate = function(parent1){
         while(true){
             var chromosome = this.population[Math.floor(random(POPMAX))];
-            if(random(this.maxFitness) < chromosome.fitness){
-                return chromosome;
+            if(parent1 != chromosome){
+                if(random(this.maxFitness) < chromosome.fitness){
+                    return chromosome;
+                }
             }
         }
     }
@@ -45,7 +47,7 @@ function Population(POPMAX, GENEMAX, MUTATION){
         var tempPop = [];
         for(var i = 0; i < POPMAX; i++){
             var parent1 = this.lookForMate();
-            var parent2 = this.lookForMate();
+            var parent2 = this.lookForMate(parent1);
             var child = parent1.crossover(parent2);
             child.mutate(MUTATION);
             tempPop[i] = child;

@@ -25,7 +25,7 @@ function Chromosome(GENEMAX){
     }
 
     this.display = function(){
-        fill(100);
+        fill(0);
         rect(this.x, this.y, 2, 2);
     }
 
