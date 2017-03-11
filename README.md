@@ -9,3 +9,5 @@ To run it, open the index.html file in your browser!
 
 tech:
 p5.js
+
+![alt tag](https://github.com/turbek/genetic-algorithm-gfx/blob/master/genalgo2.png)
