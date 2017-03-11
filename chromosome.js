@@ -3,7 +3,7 @@ function Chromosome(GENEMAX){
     this.y = height/2;
     this.genes = [];
     this.fitness = 0;
-};
+}
 
 Chromosome.prototype.display = function(){
     fill(100);
