@@ -1,4 +1,5 @@
 function Population(POPMAX, GENEMAX, MUTATION){
+    this.maxX = 0;
     this.maxFitness = 0;
     this.population = [];
 
@@ -6,6 +7,19 @@ function Population(POPMAX, GENEMAX, MUTATION){
         for(var i = 0; i < POPMAX; i++){
             this.population.push(new Chromosome(GENEMAX));
         }
+    }
+
+    this.checkMaxX = function(){
+        for(var i = 0; i < POPMAX; i++){
+            var x = this.population[i].x;
+            if(x > this.maxX){
+                this.maxX = x;
+            }
+        }
+    }
+
+    this.drawBest = function(){
+        line(this.maxX,0,this.maxX,height);
     }
 
     this.checkFitness = function(){
@@ -57,7 +71,6 @@ function Population(POPMAX, GENEMAX, MUTATION){
             tempPop[i] = child;
         }
         this.population = tempPop;
-        console.log(this.population[0].genes.length)
         console.log("NEW POPULATION")
     }
 }
