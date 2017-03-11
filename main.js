@@ -3,6 +3,7 @@ var POPCOUNT = 1;
 var GENEMAX = 10000;
 var MUTATION = 0.02;
 var TIME = 0;
+var TIMEMAX = 1000;
 var population;
 
 function setup(){
@@ -16,9 +17,10 @@ function draw(){
     background(200);
     population.run(TIME);
     population.checkFitness();
-    if(TIME >= 100*POPCOUNT){
+    if(TIME >= TIMEMAX){
         population.generateNewPopulation();
         POPCOUNT++;
+        console.log(TIME);
         TIME = 0;
     }
     TIME++;
