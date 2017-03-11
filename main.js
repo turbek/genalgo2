@@ -1,9 +1,9 @@
+var _POPCOUNT = 1;
+var _TIME = 0;
 var POPMAX = 600;
-var POPCOUNT = 1;
 var GENEMAX = 10000;
-var MUTATION = 0.03;
-var TIME = 0;
-var TIMEMAX = 4000;
+var MUTATION = 0.02;
+var TIMEMAX = 1300;
 var population;
 var popcountHTML;
 
@@ -17,19 +17,16 @@ function setup(){
 
 function draw(){
     background(200);
-    popcountHTML.html("Generation count: "+POPCOUNT);
-    population.run(TIME);
+    popcountHTML.html("Generation count: "+_POPCOUNT);
+    population.run(_TIME);
     population.checkFitness();
     population.checkMaxX();
     population.drawBest();
-    if(mouseIsPressed){
-        TIME = TIMEMAX;
-    }
-    if(TIME >= TIMEMAX){
+    if(_TIME >= TIMEMAX){
         population.generateNewPopulation();
-        POPCOUNT++;
-        TIME = 0;
+        _POPCOUNT++;
+        _TIME = 0;
     }
-    TIME++;
+    _TIME++;
 
 }
