@@ -1,9 +1,9 @@
 var _POPCOUNT = 1;
 var _TIME = 0;
 var POPMAX = 600;
-var GENEMAX = 10000;
 var MUTATION = 0.02;
 var TIMEMAX = 1300;
+var GENEMAX = TIMEMAX;
 var population;
 var popcountHTML;
 
