@@ -2,7 +2,7 @@ var _POPCOUNT = 1;
 var _TIME = 0;
 var POPMAX = 600;
 var MUTATION = 0.02;
-var TIMEMAX = 1300;
+var TIMEMAX = 1500;
 var GENEMAX = TIMEMAX;
 var population;
 var popcountHTML;
@@ -20,7 +20,7 @@ function setup(){
 function draw(){
     background(245);
     if (population.finished === true){
-        popcountHTML.html("Algorithm finished at: "+_POPCOUNT+" generation!");
+        popcountHTML.html("Algorithm finished at: generation "+_POPCOUNT+"!");
     }
     else if (population.finished === false){
         popcountHTML.html("Generation count: "+_POPCOUNT);
