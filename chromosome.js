@@ -3,11 +3,15 @@ function Chromosome(GENEMAX){
     this.y = height/2;
     this.genes = [];
     this.fitness = 0;
+    this.r = random(255);
+    this.g = random(255);
+    this.b = random(255);
+
 }
 
 Chromosome.prototype.display = function(){
-    fill(100);
-    rect(this.x, this.y, 2, 2);
+    fill(this.r,this.g,this.b, 200);
+    rect(this.x, this.y, 5, 5);
 }
 
 Chromosome.prototype.generateGenes = function(){
