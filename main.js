@@ -6,6 +6,7 @@ var TIMEMAX = 1300;
 var GENEMAX = TIMEMAX;
 var population;
 var popcountHTML;
+var maxFitnessHTML;
 
 function setup(){
     createCanvas(500, 400);
@@ -13,20 +14,27 @@ function setup(){
     population.generatePopulation();
     population.generateGenes();
     popcountHTML = createP();
+    maxFitnessHTML = createP();
 }
 
 function draw(){
-    background(200);
-    popcountHTML.html("Generation count: "+_POPCOUNT);
-    population.run(_TIME);
-    population.checkFitness();
-    population.checkMaxX();
-    population.drawBest();
-    if(_TIME >= TIMEMAX){
-        population.generateNewPopulation();
-        _POPCOUNT++;
-        _TIME = 0;
+    background(245);
+    if (population.finished === true){
+        popcountHTML.html("Algorithm finished at: "+_POPCOUNT+" generation!");
     }
-    _TIME++;
+    else if (population.finished === false){
+        popcountHTML.html("Generation count: "+_POPCOUNT);
+        maxFitnessHTML.html("Maximum fitness: "+population.returnFitness()+"%");
+        population.run(_TIME);
+        population.checkFitness();
+        population.checkMaxX();
+        population.drawBest();
+        if(_TIME >= TIMEMAX){
+            population.generateNewPopulation();
+            _POPCOUNT++;
+            _TIME = 0;
+        }
+        _TIME++;
+    }
 
 }
