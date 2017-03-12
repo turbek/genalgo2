@@ -1,4 +1,5 @@
 function Population(POPMAX, GENEMAX, MUTATION){
+    this.finished = false;
     this.maxX = 0;
     this.maxFitness = 0;
     this.population = [];
@@ -10,6 +11,9 @@ function Population(POPMAX, GENEMAX, MUTATION){
     }
 
     this.checkMaxX = function(){
+        if (x >= width){
+            this.finished = true;
+        }
         for(var i = 0; i < POPMAX; i++){
             var x = this.population[i].x;
             if(x > this.maxX){
@@ -30,6 +34,10 @@ function Population(POPMAX, GENEMAX, MUTATION){
                 this.maxFitness = fitness;
             }
         }
+    }
+
+    this.returnFitness = function(){
+        return this.maxFitness*100;
     }
 
     this.run = function(time){
