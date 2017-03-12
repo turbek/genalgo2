@@ -11,13 +11,13 @@ function Population(POPMAX, GENEMAX, MUTATION){
     }
 
     this.checkMaxX = function(){
-        if (x >= width){
-            this.finished = true;
-        }
         for(var i = 0; i < POPMAX; i++){
             var x = this.population[i].x;
             if(x > this.maxX){
                 this.maxX = x;
+            }
+            if (x >= width){
+                this.finished = true;
             }
         }
     }
